@@ -17,6 +17,8 @@
     "concurrently": "^5.1.0"
   },
   "dependencies": {
-    "node": "^17.7.2"
+    "mysql2": "^2.3.3",
+    "node": "^17.7.2",
+    "sequelize": "^6.18.0"
   }
 }

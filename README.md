@@ -16,7 +16,9 @@ Deployed Link: https://search-engine-book-1.herokuapp.com/
   ## Installation
   The user needs to have Node.js, Inquirer, and MySQL2 downloaded to run this program. 
 
-  In the command prompt type "npm i" to install all programs for this application
+  In the command prompt type "npm i" to install all programs for this application.
+
+  
 
 
   ## Usage
