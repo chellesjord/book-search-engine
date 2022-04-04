@@ -11,7 +11,6 @@ Deployed Link: https://search-engine-book-1.herokuapp.com/
 
   * [Installation](#installation)
   * [Usage](#usage)
-  * [License](#license)
   * [Questions](#questions)
 
   ## Installation
