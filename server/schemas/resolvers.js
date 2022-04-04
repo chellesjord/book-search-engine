@@ -45,31 +45,29 @@ const resolvers = {
 
             return { token, user };
         },
-        //TODO: fix save book resolver it's not right, but i need to come back to it
-    //     saveBook: async (parent, { bookId }, context) => {
-    //         if (context.user) {
-    //             const updatedUser = await User.findOneAndUpdate(
-    //                 { _id: bookId },
-    //                 { $push: { reactions: { reactionBody, username: context.user.username } } },
-    //                 { new: true, runValidators: true }
-    //             );
+        saveBook: async (parent, { bookId }, context) => {
+            if (context.user) {
+                const updatedUser = await User.findOneAndUpdate(
+                    { _id: bookId },
+                    { $push: { reactions: { reactionBody, username: context.user.username } } },
+                    { new: true, runValidators: true }
+                );
 
-    //             return updatedUser;
-    //         }
+                return updatedUser;
+            }
 
-    //         throw new AuthenticationError('You need to be logged in!');
-    //     },
-    //     // TODO: work on remove book resolver
-    //     removeBook: async (parent, { bookId }, context) => {
-    //         if (context.user) {
-    //             const updatedUser = await User.findByIdAndUpdate(
-    //                 { _id: context.user._id },
-    //                 { $pull: { savedBooks: { bookId } } },
-    //                 { new: true }
-    //             );
-    //             return updatedUser;
-    //         }
-    //         throw new AuthenticationError('You need to be logged in!');
-    //     },
+            throw new AuthenticationError('You need to be logged in!');
+        },
+        removeBook: async (parent, { bookId }, context) => {
+            if (context.user) {
+                const updatedUser = await User.findByIdAndUpdate(
+                    { _id: context.user._id },
+                    { $pull: { savedBooks: { bookId } } },
+                    { new: true }
+                );
+                return updatedUser;
+            }
+            throw new AuthenticationError('You need to be logged in!');
+        },
     }
 }
